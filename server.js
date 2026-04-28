@@ -171,11 +171,5 @@ app.post("/api/payment/ecpay/callback",async(req,res)=>{console.log("ECPay callb
 app.post("/api/payment/newebpay/callback",async(req,res)=>{console.log("NewebPay callback",req.body);res.send("OK");});
 app.get("/health",(req,res)=>res.json({ok:true}));
 
-app.use(express.static(__dirname));
-
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
-
 const port=process.env.PORT||3000;
 app.listen(port,()=>console.log(`Breath Energy brand site running on http://localhost:${port}`));
