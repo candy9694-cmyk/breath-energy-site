@@ -1,0 +1,18 @@
+{
+  "name": "breath-energy-brand-site",
+  "version": "1.1.0",
+  "description": "呼吸的地方｜高質感品牌版能量決策網站 MVP",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "nanoid": "^5.0.7"
+  }
+}

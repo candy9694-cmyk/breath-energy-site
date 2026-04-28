@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>呼吸的地方｜能量決策平台</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="brand-chip">呼吸的地方 · 能量決策</div>
+        <h1>看懂現在，<br>走對下一步</h1>
+        <p>整合人生底盤與當下狀態，判斷你現在該衝、該等，還是該轉方向。</p>
+        <div class="topic-grid">
+          <button onclick="selectTopic('love')"><span>❤️</span>感情</button>
+          <button onclick="selectTopic('work')"><span>💼</span>工作</button>
+          <button onclick="selectTopic('money')"><span>💰</span>財務</button>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <section class="card intro-card">
+        <h2>這不是算命，是決策輔助</h2>
+        <p>免費摘要會先告訴你目前狀態；完整版會提供行動策略、避雷提醒與時機判斷。</p>
+      </section>
+
+      <section class="card" id="formCard">
+        <h2>開始免費分析</h2>
+        <div class="form">
+          <label>姓名<input id="name" placeholder="請輸入姓名"></label>
+          <label>出生日期<input id="birthDate" type="date"></label>
+          <label>出生時間<input id="birthTime" type="time"></label>
+          <label>Email（可選）<input id="email" placeholder="方便保存報告"></label>
+          <label class="full">LINE User ID（測試用，可選）<input id="lineUserId" placeholder="未串 LINE Login 前可留空"></label>
+        </div>
+        <button class="primary" onclick="createReport()">產生免費摘要</button>
+        <p class="hint">正式版可接 LINE Login，自動取得會員資料。</p>
+      </section>
+
+      <section class="card hidden" id="resultCard">
+        <h2>免費摘要</h2>
+        <div class="metrics">
+          <div><span>人生底盤</span><b id="baziScore">-</b></div>
+          <div><span>當下狀態</span><b id="liuyaoScore">-</b></div>
+          <div><span>狀態差值</span><b id="diffScore">-</b></div>
+        </div>
+        <div class="summary" id="freeSummary"></div>
+        <div class="paybox">
+          <h3>🔒 解鎖完整報告 NT$399</h3>
+          <p>完整報告會告訴你：下一步怎麼做、哪些決定容易出錯、什麼時候適合行動。</p>
+          <button class="primary" onclick="createOrder()">👉 看完整分析（避免做錯決定）</button>
+        </div>
+      </section>
+
+      <section class="card hidden" id="orderCard">
+        <h2>訂單已建立</h2>
+        <p>訂單編號：<b id="orderNo"></b></p>
+        <p class="hint">MVP 期間可手動收款；金流通過後改成綠界/藍新付款連結。</p>
+        <button class="secondary" onclick="manualPaid()">測試：標記付款成功並產生解鎖碼</button>
+      </section>
+
+      <section class="card">
+        <h2>輸入解鎖碼</h2>
+        <div class="unlock-row">
+          <input id="unlockCode" placeholder="例如 ENERGY-ABCDEFGH">
+          <button class="primary" onclick="verifyUnlock()">解鎖</button>
+        </div>
+      </section>
+
+      <section class="card hidden" id="fullCard">
+        <h2>完整能量決策報告</h2>
+        <div id="fullReport"></div>
+      </section>
+    </div>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
